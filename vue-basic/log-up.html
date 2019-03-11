@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>设计一个注册界面</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<style type="text/css">
+			.left {
+				width: 45%;
+				height: 400px;
+			}
+
+			.right {
+				position: fixed;
+				left: 700px;
+				top: 30px;
+			}
+
+			.login {
+				width: 400px;
+				height: 40px;
+				border-radius: 5px;
+				border: 1px solid #8E8E8E;
+
+			}
+
+			.password {
+				position: relative;
+				width: 400px;
+				height: 40px;
+				border-radius: 5px;
+				border: 1px solid #8E8E8E;
+				top: 30px;
+			}
+
+			.select {
+				position: relative;
+				width: 140px;
+				height: 40px;
+				border-radius: 5px;
+				border: 1px solid #8E8E8E;
+				top: 60px;
+			}
+
+			.telephone {
+				position: relative;
+				width: 255px;
+				height: 35px;
+				border-radius: 5px;
+				border: 1px solid #8E8E8E;
+				top: 60px;
+			}
+
+			.find {
+				position: relative;
+				top: 50px;
+				color: #8E8E8E;
+
+			}
+
+			.log-up {
+				position: relative;
+				width: 180px;
+				height: 40px;
+				border-radius: 5px;
+				border: 1px solid #8E8E8E;
+				top: 60px;
+				text-align: center;
+				background: aquamarine;
+				color: #FFFFFF;
+			}
+
+			.log-up1 {
+				position: relative;
+				width: 180px;
+				height: 40px;
+				border-radius: 5px;
+				border: 1px solid #8E8E8E;
+				top: -0px;
+				text-align: center;
+				background:aquamarine;
+				color: #EEEEEE;
+				left: 220px;
+			}
+
+			.active {
+				font-size: 50px;
+				font-style: initial;
+				font-weight: 400;
+			}
+
+			.author {
+				position: relative;
+				left: 325px;
+				top: -45px;
+				color: blue;
+				font-weight: 200;
+			}
+
+			.link {
+				cursor: pointer;
+				position: relative;
+				top: 20px;
+				color: #8E8E8E;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="left">
+				<img src="img/login1.png" />
+				<img src="img/login2.png" />
+				<img src="img/login3.png" />
+			</div>
+
+			<div class="right">
+				<div id="app">
+					<h1 class="active">欢迎注册QQ</h1>
+					<h2>每一天，乐在沟通。</h2>
+					<h2 class="author">免费靓号</h2>
+					<input v-model="message1" placeholder="账号" class="login">
+					<br />
+					<input v-model="message1" placeholder="密码" class="password">
+					<br />
+					<select v-model="selected" name="+86" class="select">
+						<option value="+86">+86</option>
+						<option value="中国+86">中国+86</option>
+						<option value="+852">中国香港特别行政区+852</option>
+						<option value="中国澳门特别行政区+853">中国澳门特别行政区+853</option>
+						<option value="中国台湾地区+886">中国台湾地区+886</option>
+					</select>
+					<input v-model="message1" placeholder="手机号码" class="telephone">
+					<h5 class="find">可通过该手机找回密码</h5>
+					<h3 class="log-up">登录</h3>
+					<h3 class="log-up1"><a href="login-up1.html">注册</a></h3>
+					<div>
+					<span class="followed link" v-show="followed" @click="handlefollow">
+						<i class="icon-check"></i>我已阅读并同意相关服务条款和隐私政策
+					</span>
+					<span class="cancle-followed link" v-show="followed===false" @click="handlefollow">
+						<i class="icon-check-empty"></i>我已阅读并同意相关服务条款和隐私政策
+					</span>
+					</div></div>
+			</div>
+				</div>
+				<script type="text/javascript">
+					var app = new Vue({
+						el: '#app',
+						data: {
+							followed: false
+						},
+						methods: {
+							handlefollow: function() {
+								this.followed = !this.followed;
+							}
+
+						}
+
+					})
+				</script>
+	</body>
+</html>

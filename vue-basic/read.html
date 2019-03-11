@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.card{
+				width: 100%;
+				height: 80px;
+				
+			}
+			.author{
+				position: relative;
+				font-size: 15px;
+				color: #8E8E8E;
+				top: 10px;
+				}
+				
+			.author01{
+					position: relative;
+					font-size: 15px;
+					color: #8E8E8E;
+					right: -900px;
+					top: -15px;
+					
+				}
+			.container{
+				position: relative;
+				height: 0 auto;
+				width: 80%;
+				margin: 0 auto;
+			}
+			.card img{
+				top: -60px;
+				position: relative;
+				width: 60px;
+				height: 60px;
+				border-radius: 100%;
+			}
+			.name{
+				position: relative;
+				top: -10px;
+				left: 120px;
+			}
+			.text{
+				position: relative;
+				left: 120px;
+				top: -100px;
+				color: #8E8E8E;
+				font-size: 14px;
+			}
+			.look{
+				position: relative;
+				top: -150px;
+				color: #8E8E8E;
+				right: -900px;
+			}
+			.looks{
+				position: relative;
+				top: -150px;
+				color: #7FFF00;
+				right: -900px;
+			}
+			.descript{
+				content: center;
+				width: 80%;
+				background: #EEEEEE;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- vue-app的根容器 -->
+		<div id="app">
+			<h2 class="author">推荐作者</h2>
+			<h2 class="author01">换一批</h2>
+			<div class="container">
+				<!-- 通过循环遍历books数组 -->
+				<div class="card" v-for="book in books">
+					<!-- 显示图片的名字 -->
+					<h4 class="name">{{book.name}}</h4>
+					<!-- 绑定图片的封面属性 -->
+					<img :src="book.cover">
+					<!-- 判定like的值，显示不同的文字 -->
+					<h4 class="text">{{book.text}}</h4>
+					<p v-if="book.like" class="look">√已关注</p>
+					<p v-else class="looks">＋关注</p>
+					
+				</div>
+				<input type="text" value="查看全部>" class="descript"/>
+			</div>
+		</div>
+		<script type="text/javascript">
+			
+			var app=new Vue({
+				
+				el:'#app',
+				
+				data:{
+					
+					show:true,
+					books:[
+						{
+						name:'胡七筒',
+						cover:'img/book1.jpg',
+						like:true,
+						text:'写了325K字·11k喜欢'
+						}
+						,
+						{
+						name:'汪波_偶遇科学',
+						cover:'img/55.png',
+						like:false,
+						text:'写了302.1k字·1.9k喜欢'
+						}
+						,
+						{
+						name:'梅拾瑛',
+						cover:'img/book3.jpg',
+						like:true,
+						text:'写了269.3k字·23.4k喜欢'
+						}
+						,
+						{
+						name:'徐林Grace',
+						cover:'img/56.png',
+						like:false,
+						text:'写了677.9k字·5.5k喜欢'
+						},
+						{
+						name:'行距版君',
+						cover:'img/57.png',
+						like:false,
+						text:'写了535.1k字·51.8k喜欢'
+						}
+					]
+				}
+			})
+			
+		</script>
+		 
+
+		
+	</body>
+</html>
